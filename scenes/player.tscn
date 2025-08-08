@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7stxfe7c8sce"]
+
+[ext_resource type="Script" uid="uid://dxo7b704unyy" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="PackedScene" uid="uid://dpjbw8qx35qk3" path="res://scenes/console.tscn" id="2_g2els"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_u8vuu"]
+size = Vector2(32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u8vuu"]
+radius = 16.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_3vyb7")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("PlaceholderTexture2D_u8vuu")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_u8vuu")
+
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="Console" parent="Camera" instance=ExtResource("2_g2els")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -960.0
+offset_top = -1080.0
+offset_right = 960.0
+offset_bottom = -540.0
+grow_horizontal = 1
+grow_vertical = 1
