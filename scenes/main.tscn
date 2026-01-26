@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cam47cwh2ciwa"]
+[gd_scene format=3 uid="uid://cam47cwh2ciwa"]
 
 [ext_resource type="Script" uid="uid://box6o8ou0x6e3" path="res://scripts/menu.gd" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://eal1wy3amf2p" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="Texture2D" uid="uid://bf2o2ljsprwvh" path="res://icon.svg" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dpjbw8qx35qk3" path="res://scenes/console.tscn" id="4_jyhfs"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=1617323332]
 script = ExtResource("1_sugp2")
 
-[node name="Menu" type="VBoxContainer" parent="."]
+[node name="Menu" type="VBoxContainer" parent="." unique_id=602778597]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -17,16 +18,20 @@ theme_override_constants/separation = 48
 alignment = 1
 script = ExtResource("1_0wfyh")
 
-[node name="GameLogo" type="TextureRect" parent="Menu"]
+[node name="GameLogo" type="TextureRect" parent="Menu" unique_id=471463325]
 layout_mode = 2
 size_flags_horizontal = 4
 texture = ExtResource("2_sugp2")
 
-[node name="PlayButton" type="Button" parent="Menu"]
+[node name="PlayButton" type="Button" parent="Menu" unique_id=26840530]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 32
 text = "play"
+
+[node name="Console" parent="." unique_id=2137242389 instance=ExtResource("4_jyhfs")]
+offset_top = -540.0
+offset_bottom = -1080.0
 
 [connection signal="start_game" from="Menu" to="." method="_on_menu_start_game"]
 [connection signal="pressed" from="Menu/PlayButton" to="Menu" method="_on_play_button_pressed"]

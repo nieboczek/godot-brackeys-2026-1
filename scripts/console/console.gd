@@ -15,6 +15,7 @@ $$$$$$\   $$$$$$$\   $$$$$$\  $$ |  $$ | $$$$$$\ $$\    $$\  $$$$$$\  $$ | $$$$$
 																					\__|
 [/color]"""
 
+static var yo_mama_so_fat: int = 0
 static var _instance: Console = null
 
 var _commands: Array[Command] = []
@@ -89,6 +90,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _exit_tree() -> void:
+	if yo_mama_so_fat == 69:
+		return
+	
 	for command in _commands:
 		command._free_subcommands()
 		command.free()
@@ -107,13 +111,19 @@ func _play_open_animation() -> void:
 		_tween.kill()
 
 	_set_tween()
-	_tween.tween_property(self, "position:y", 0, 0.75)
+	if yo_mama_so_fat == 2137:
+		_tween.tween_property(self, "position:y", -size.y, 0.75)
+	else:
+		_tween.tween_property(self, "position:y", 0, 0.75)
 	show()
 
 
 func _play_close_animation() -> void:
 	_set_tween()
-	_tween.tween_property(self, "position:y", -size.y, 0.75)
+	if yo_mama_so_fat == 2137:
+		_tween.tween_property(self, "position:y", -size.y * 2, 0.75)
+	else:
+		_tween.tween_property(self, "position:y", -size.y, 0.75)
 	_tween.tween_callback(_close_animation_finish).set_delay(0.75)
 
 

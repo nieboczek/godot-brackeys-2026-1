@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpjbw8qx35qk3"]
+[gd_scene format=3 uid="uid://dpjbw8qx35qk3"]
 
 [ext_resource type="Theme" uid="uid://cpp0fyj2l0glf" path="res://resources/console_theme.tres" id="1_xil4p"]
 [ext_resource type="Script" uid="uid://bprtxkkobqng7" path="res://scripts/console/console.gd" id="2_t6k7n"]
 [ext_resource type="Script" uid="uid://6l72iikb4b7j" path="res://scripts/console/command_line.gd" id="2_xil4p"]
 
-[node name="Console" type="VBoxContainer"]
+[node name="Console" type="VBoxContainer" unique_id=2137242389]
 z_index = 1024
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,14 +16,14 @@ mouse_filter = 2
 theme = ExtResource("1_xil4p")
 script = ExtResource("2_t6k7n")
 
-[node name="OutputLabel" type="RichTextLabel" parent="."]
+[node name="OutputLabel" type="RichTextLabel" parent="." unique_id=2059651018]
 layout_mode = 2
 size_flags_vertical = 3
 bbcode_enabled = true
 scroll_following = true
 autowrap_mode = 0
 
-[node name="CommandLine" type="TextEdit" parent="."]
+[node name="CommandLine" type="TextEdit" parent="." unique_id=80194789]
 layout_mode = 2
 placeholder_text = "Enter a command"
 scroll_fit_content_height = true
