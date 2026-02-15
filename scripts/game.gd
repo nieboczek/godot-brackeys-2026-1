@@ -7,7 +7,6 @@ enum InputHolder {
 }
 
 static var instance: Game
-static var player: Player
 
 static var _input_holders := InputHolder.MAIN_MENU as int
 static var _up_events: Array[InputEvent]
@@ -52,11 +51,10 @@ static func _extract_events(action: StringName) -> Array[InputEvent]:
 
 func _ready() -> void:
 	instance = self
-	player = $Player
 	
 	var console: Console = $/root/Main/Console
 	console.yo_mama_so_fat = 69
-	console.reparent(player.get_node(^"Camera"))
+	console.reparent($Camera)
 	console.yo_mama_so_fat = 2137
 	console.size = Vector2(1920, 540)
 	console.position = Vector2(-960, -1080)

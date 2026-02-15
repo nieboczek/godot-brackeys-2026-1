@@ -1,16 +1,10 @@
 [gd_scene format=3 uid="uid://bsoaajk6s67fl"]
 
 [ext_resource type="Script" uid="uid://cvmk843rlvkc1" path="res://scripts/game.gd" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://c7stxfe7c8sce" path="res://scenes/player.tscn" id="2_yqjtg"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_yqjtg"]
-size = Vector2(16, 16)
+[ext_resource type="Script" uid="uid://b5vw3ialgaq0e" path="res://scripts/camera.gd" id="2_yqjtg"]
 
 [node name="Game" type="Node2D" unique_id=183484459]
 script = ExtResource("1_uwrxv")
 
-[node name="Player" parent="." unique_id=1560341936 instance=ExtResource("2_yqjtg")]
-
-[node name="PlaceholderSprite" type="Sprite2D" parent="." unique_id=1522666150]
-position = Vector2(82, 63)
-texture = SubResource("PlaceholderTexture2D_yqjtg")
+[node name="Camera" type="Camera2D" parent="." unique_id=195378364]
+script = ExtResource("2_yqjtg")
