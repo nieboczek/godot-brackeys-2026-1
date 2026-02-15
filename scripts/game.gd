@@ -15,6 +15,9 @@ static var _right_events: Array[InputEvent]
 static var _down_events: Array[InputEvent]
 
 
+@export var path: Path2D
+
+
 static func update_input_holder(input_holder: InputHolder, force_true: bool = false) -> void:
 	var new_value := (_input_holders | input_holder) if force_true else (_input_holders ^ input_holder)
 	if _input_holders > 0 and new_value == 0:
@@ -56,8 +59,8 @@ func _ready() -> void:
 	console.yo_mama_so_fat = 69
 	console.reparent($Camera)
 	console.yo_mama_so_fat = 2137
-	console.size = Vector2(1920, 540)
-	console.position = Vector2(-960, -1080)
+	console.size = Vector2(640, 180)
+	console.position = Vector2(-320, -360)
 	if not console._closed:
 		console._closed = true
 		console._play_close_animation()

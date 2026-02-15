@@ -15,10 +15,11 @@ content_margin_bottom = 2.0
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_jyhfs"]
-font_names = PackedStringArray("FiraCode Nerd Font", "Consolas", "Monospace")
+font_names = PackedStringArray("Adwaita Mono", "Consolas", "Monospace")
 
 [resource]
 default_font = SubResource("SystemFont_jyhfs")
+default_font_size = 8
 RichTextLabel/styles/normal = SubResource("StyleBoxFlat_mu184")
 TextEdit/styles/focus = SubResource("StyleBoxFlat_kqtqv")
 TextEdit/styles/normal = SubResource("StyleBoxFlat_kqtqv")

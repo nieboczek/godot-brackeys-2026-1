@@ -7,7 +7,7 @@ signal submitted(string: String)
 const COMMAND_COLOR := Color.CHARTREUSE
 const SUBCOMMAND_COLOR := Color.GOLD
 const ARG_COLOR := Color.LIGHT_GRAY
-const FONT_SIZE := 16
+const FONT_SIZE := 8
 
 var _font: Font
 var _hint_str := ""

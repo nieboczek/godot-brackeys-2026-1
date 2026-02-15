@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://ccsbn782hmlb3"]
+
+[ext_resource type="Script" uid="uid://bm30lb64iru01" path="res://scripts/enemy/sheep.gd" id="1_nvkbx"]
+[ext_resource type="Texture2D" uid="uid://b6hpmp1ds4fti" path="res://assets/sheep.png" id="2_dbj01"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvkbx"]
+size = Vector2(42.270046, 34.67337)
+
+[node name="Sheep" type="PathFollow2D" unique_id=752728675]
+rotation = 0.007751783
+rotates = false
+loop = false
+script = ExtResource("1_nvkbx")
+speed = 20.0
+health = 8.0
+damage = 2.0
+center_offset = Vector2(-4, -28)
+
+[node name="CharacterBody" type="CharacterBody2D" parent="." unique_id=1017362470]
+
+[node name="Sprite" type="Sprite2D" parent="CharacterBody" unique_id=1688934114]
+position = Vector2(-0.20154431, -25.999218)
+rotation = -0.007751783
+texture = ExtResource("2_dbj01")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="CharacterBody" unique_id=1533801430]
+position = Vector2(-4.166544, -21.46834)
+shape = SubResource("RectangleShape2D_nvkbx")

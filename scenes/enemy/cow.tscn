@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://cwdmdf3lyrix0"]
+
+[ext_resource type="Script" uid="uid://iwkgwanlyorj" path="res://scripts/enemy/cow.gd" id="1_tuxxx"]
+[ext_resource type="Texture2D" uid="uid://bi85m0xm8hbwm" path="res://assets/cow.png" id="2_nqaqg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuxxx"]
+size = Vector2(55.76834, 32.40204)
+
+[node name="Cow" type="PathFollow2D" unique_id=731326260]
+rotates = false
+loop = false
+script = ExtResource("1_tuxxx")
+speed = 12.0
+damage = 3.0
+center_offset = Vector2(-2, -20)
+
+[node name="CharacterBody" type="CharacterBody2D" parent="." unique_id=1626197581]
+
+[node name="Sprite" type="Sprite2D" parent="CharacterBody" unique_id=1528856284]
+position = Vector2(0.17265749, -23.999378)
+texture = ExtResource("2_nqaqg")
+flip_h = true
+
+[node name="CollisionShape" type="CollisionShape2D" parent="CharacterBody" unique_id=303242748]
+position = Vector2(-1.8848443, -16.013979)
+shape = SubResource("RectangleShape2D_tuxxx")

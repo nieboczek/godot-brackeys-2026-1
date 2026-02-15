@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bpplrurdo2ijl"]
+
+[ext_resource type="Texture2D" uid="uid://y3nllloc1fa1" path="res://assets/basic_tower.png" id="1_ay4al"]
+[ext_resource type="Script" uid="uid://da03ei2kln5ks" path="res://scripts/tower.gd" id="2_ktxwe"]
+[ext_resource type="Texture2D" uid="uid://b4h28bh7tvqf5" path="res://assets/arrow.png" id="3_ktxwe"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
+radius = 153.75505
+
+[node name="Tower" type="Sprite2D" unique_id=701720898]
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_ay4al")
+script = ExtResource("2_ktxwe")
+cooldown = 1.0
+arrow_texture = ExtResource("3_ktxwe")
+
+[node name="EnemyDetector" type="Area2D" parent="." unique_id=1399561136]
+collision_layer = 0
+
+[node name="CollisionShape" type="CollisionShape2D" parent="EnemyDetector" unique_id=1909956574]
+shape = SubResource("CircleShape2D_lbhrr")
+
+[connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
+[connection signal="body_exited" from="EnemyDetector" to="." method="_on_enemy_detector_body_exited"]
