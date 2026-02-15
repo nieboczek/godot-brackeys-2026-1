@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://d2jiopsp2ocwb"]
 
 [ext_resource type="Script" uid="uid://44iq8p3fasqg" path="res://scripts/enemy/pig.gd" id="1_vjpy6"]
-[ext_resource type="Texture2D" uid="uid://7akk27vfniy8" path="res://assets/pig.png" id="2_aq3d3"]
+[ext_resource type="Texture2D" uid="uid://ccrb3hy8jbbje" path="res://assets/pig.png" id="2_aq3d3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aq3d3"]
-size = Vector2(45, 29)
+size = Vector2(37.5, 27.5)
 
 [node name="Pig" type="PathFollow2D" unique_id=2047119510]
 rotates = false
@@ -19,7 +19,8 @@ center_offset = Vector2(-4, -20)
 [node name="Sprite" type="Sprite2D" parent="CharacterBody" unique_id=206892123]
 position = Vector2(-1, -25)
 texture = ExtResource("2_aq3d3")
+flip_h = true
 
 [node name="CollisionShape" type="CollisionShape2D" parent="CharacterBody" unique_id=1620695916]
-position = Vector2(-6.5, -20.5)
+position = Vector2(0.25, -15.75)
 shape = SubResource("RectangleShape2D_aq3d3")

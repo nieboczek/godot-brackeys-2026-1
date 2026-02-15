@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bfsurnxnilgty"]
+
+[ext_resource type="Script" uid="uid://c2nf21g8w6gxm" path="res://scripts/enemy/duck.gd" id="1_7le0v"]
+[ext_resource type="Texture2D" uid="uid://bmof10nj3nhf7" path="res://assets/duck.png" id="2_7le0v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvkbx"]
+size = Vector2(43.99868, 29.014631)
+
+[node name="Duck" type="PathFollow2D" unique_id=752728675]
+rotation = 0.007751783
+rotates = false
+loop = false
+script = ExtResource("1_7le0v")
+speed = 32.0
+health = 8.0
+damage = 2.0
+center_offset = Vector2(0, -22)
+
+[node name="CharacterBody" type="CharacterBody2D" parent="." unique_id=1017362470]
+
+[node name="Sprite" type="Sprite2D" parent="CharacterBody" unique_id=1688934114]
+position = Vector2(-0.1705375, -21.999338)
+rotation = -0.007751783
+texture = ExtResource("2_7le0v")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="CharacterBody" unique_id=1533801430]
+position = Vector2(-2.1704788, -20.49163)
+shape = SubResource("RectangleShape2D_nvkbx")

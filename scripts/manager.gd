@@ -5,14 +5,16 @@ const ENEMY_MAP: Dictionary[String, PackedScene] = {
 	"cow": preload("res://scenes/enemy/cow.tscn"),
 	"pig": preload("res://scenes/enemy/pig.tscn"),
 	"chicken": preload("res://scenes/enemy/chicken.tscn"),
+	"duck": preload("res://scenes/enemy/duck.tscn"),
 }
 
 const ROUNDS: Array[Array] = [
 	[
 		"1: sheep",
-		"5: pig",
-		"9: chicken",
-		"13: cow",
+		"4: duck",
+		"7: chicken",
+		"10: cow",
+		"13: pig",
 	],
 	[
 		"2: cow",
