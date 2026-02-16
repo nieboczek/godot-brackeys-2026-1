@@ -14,6 +14,10 @@ func _ready() -> void:
 	for panel in $Towers.get_children():
 		panel.bought.connect(_bought)
 
+func _draw() -> void:
+	if placing_tower:
+		draw_circle(placing_tower.position, placing_tower.tower_range, Color(1, 1, 1, 0.1), true)
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"place_tower") and placing_tower != null and bodies_overlapping == 0:
 		var area: Area2D = placing_tower.get_node("OccupiedSpace")
@@ -25,6 +29,7 @@ func _input(event: InputEvent) -> void:
 		placing_tower.modulate = Color.WHITE
 		placing_tower.enable()
 		placing_tower = null
+		queue_redraw()
 		Log.debug("Placed tower")
 
 func _process(_delta: float) -> void:
@@ -33,6 +38,7 @@ func _process(_delta: float) -> void:
 
 	var pos := get_global_mouse_position()
 	placing_tower.position = pos
+	queue_redraw()
 
 func _bought(scene: PackedScene) -> void:
 	var node := scene.instantiate()

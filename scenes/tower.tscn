@@ -28,7 +28,7 @@ collision_layer = 0
 monitoring = false
 
 [node name="CollisionShape" type="CollisionShape2D" parent="EnemyDetector" unique_id=1909956574]
-position = Vector2(0, -15)
+position = Vector2(0, -17)
 shape = SubResource("CircleShape2D_lbhrr")
 
 [node name="OccupiedSpace" type="Area2D" parent="." unique_id=664005264]

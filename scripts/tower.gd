@@ -6,10 +6,14 @@ extends Node2D
 @export var arrow_texture: Texture2D
 @export var arrow_max_height: float = 60.0
 @export var arrow_speed: float = 160.0
+@export var tower_range: float = 80.0
 
 var enemies_to_shoot: Array[Enemy] = []
 var predicted_health: Array[int] = []
 var current_cooldown := 0.0
+
+func _ready() -> void:
+	$EnemyDetector/CollisionShape.shape.radius = tower_range
 
 
 func enable() -> void:
