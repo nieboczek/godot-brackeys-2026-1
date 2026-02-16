@@ -40,7 +40,7 @@ theme = ExtResource("3_u5sy4")
 script = ExtResource("3_lbhrr")
 
 [node name="HPLabel" type="RichTextLabel" parent="Camera/UI" unique_id=1952117363]
-custom_minimum_size = Vector2(180, 24)
+custom_minimum_size = Vector2(240, 24)
 layout_mode = 1
 offset_right = 1.0
 offset_bottom = 24.0

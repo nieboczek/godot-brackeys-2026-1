@@ -15,7 +15,9 @@ func _process(delta: float) -> void:
 	time += delta
 	var t := clampf(time / duration, 0, 1)
 
-	end = target.global_position + target.center_offset
+	if target:
+		end = target.global_position + target.center_offset
+		
 	global_position = start.lerp(control, t).lerp(
 		control.lerp(end, t), t
 	)

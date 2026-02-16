@@ -73,4 +73,5 @@ func _hit_target(body: Node2D) -> void:
 	if not body.is_queued_for_deletion():
 		body.modulate = Color.RED
 		await get_tree().create_timer(0.5).timeout
-		body.modulate = Color.WHITE
+		if body:
+			body.modulate = Color.WHITE
