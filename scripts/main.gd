@@ -1,7 +1,5 @@
 class_name Main extends Node
 
-@onready var menu: VBoxContainer = $Menu
-
 func _ready() -> void:
 	var args := OS.get_cmdline_args()
 	
@@ -13,7 +11,7 @@ func _ready() -> void:
 func _load_game() -> void:
 	var game := preload("res://scenes/game.tscn").instantiate()
 	get_tree().root.add_child.call_deferred(game)
-	menu.queue_free()
+	$Menu.queue_free()
 
 
 func _on_menu_start_game() -> void:

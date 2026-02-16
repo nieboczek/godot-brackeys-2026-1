@@ -1,15 +1,19 @@
-extends Sprite2D
+extends Node2D
 
 @export var cooldown: float = 0.0
-@export var damage: float = 1.0
+@export var damage: int = 1
 @export var shoot_start: Vector2
 @export var arrow_texture: Texture2D
 @export var arrow_max_height: float = 60.0
 @export var arrow_speed: float = 160.0
 
 var enemies_to_shoot: Array[Enemy] = []
-var predicted_health: Array[float] = []
+var predicted_health: Array[int] = []
 var current_cooldown := 0.0
+
+
+func enable() -> void:
+	$EnemyDetector.monitoring = true
 
 
 func _on_enemy_detector_body_entered(body: Node2D) -> void:
@@ -38,7 +42,7 @@ func spawn_arrow() -> void:
 	var target: Enemy = null
 	for i in range(enemies_to_shoot.size()):
 		var predicted := predicted_health[i]
-		if predicted <= 0.0:
+		if predicted <= 0:
 			continue
 		
 		var enemy := enemies_to_shoot[i]

@@ -12,8 +12,8 @@ rotates = false
 loop = false
 script = ExtResource("1_nvkbx")
 speed = 20.0
-health = 8.0
-damage = 2.0
+health = 8
+damage = 2
 center_offset = Vector2(-4, -28)
 
 [node name="CharacterBody" type="CharacterBody2D" parent="." unique_id=1017362470]

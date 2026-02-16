@@ -16,6 +16,7 @@ static var _down_events: Array[InputEvent]
 
 
 @export var path: Path2D
+@export var towers: Node
 
 
 static func update_input_holder(input_holder: InputHolder, force_true: bool = false) -> void:

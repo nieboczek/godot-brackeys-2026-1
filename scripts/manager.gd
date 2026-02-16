@@ -34,22 +34,38 @@ const ROUNDS: Array[Array] = [
 	]
 ]
 
-signal health_changed(new_health: float)
+signal health_changed(new_health: int)
+signal blood_changed(new_blood: int)
 signal new_round(n: int)
 
 var current_round: Array[SpawnInfo]
 var round_num: int = 0
 var round_timer: float = 0.0
-var health: float = 50
+var health: int = 50:
+	set(value):
+		health = value
+		health_changed.emit(value)
+var blood: int = 50:
+	set(value):
+		blood = value
+		blood_changed.emit(value)
 
 
 func _ready() -> void:
 	Console.register_command(Command.of("start_round").executes(start_round))
+	Console.register_command(Command.of("health").args(["new health: int"]).executes(_health_cmd))
+	Console.register_command(Command.of("blood").args(["new blood: int"]).executes(_blood_cmd))
 
 
-func damage(dmg: float) -> void:
+func _health_cmd(new_health: int) -> void:
+	health = new_health
+
+func _blood_cmd(new_blood: int) -> void:
+	blood = new_blood
+
+
+func damage(dmg: int) -> void:
 	health -= dmg
-	health_changed.emit(health)
 
 
 func start_round() -> void:
