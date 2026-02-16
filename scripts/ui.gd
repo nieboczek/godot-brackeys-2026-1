@@ -21,6 +21,8 @@ func _input(event: InputEvent) -> void:
 		area.area_exited.disconnect(_area_exited)
 		area.monitoring = false
 		
+		placing_tower.process_mode = Node.PROCESS_MODE_INHERIT
+		placing_tower.modulate = Color.WHITE
 		placing_tower.enable()
 		placing_tower = null
 		Log.debug("Placed tower")
@@ -41,19 +43,22 @@ func _bought(scene: PackedScene) -> void:
 	area.area_entered.connect(_area_entered)
 	area.area_exited.connect(_area_exited)
 	
+	assert(area.disable_mode == CollisionObject2D.DISABLE_MODE_KEEP_ACTIVE)
 	assert(area.collision_layer == 2)
 	assert(area.collision_mask == 2)
 	
 	placing_tower = node
+	placing_tower.modulate = Color(1, 1, 1, 0.7)
 	Log.debug("Started placing tower")
 
 func _area_entered(_body: Area2D) -> void:
 	bodies_overlapping += 1
-	Log.debug("overlapping +1")
+	placing_tower.modulate = Color(1, 0, 0, 0.7)
 
 func _area_exited(_body: Area2D) -> void:
 	bodies_overlapping -= 1
-	Log.debug("overlapping -1")
+	if bodies_overlapping == 0:
+		placing_tower.modulate = Color(1, 1, 1, 0.7)
 
 func _blood_changed(new_blood: int) -> void:
 	_set_label(Manager.health, new_blood)

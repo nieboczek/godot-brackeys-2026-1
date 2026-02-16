@@ -13,7 +13,7 @@ size = Vector2(29, 23)
 [node name="Tower" type="Node2D" unique_id=1361143145]
 script = ExtResource("2_ktxwe")
 cooldown = 0.8
-shoot_start = Vector2(-10, -50)
+shoot_start = Vector2(-4, -39)
 arrow_texture = ExtResource("3_ktxwe")
 arrow_max_height = 40.0
 arrow_speed = 130.0
@@ -32,13 +32,13 @@ position = Vector2(0, -15)
 shape = SubResource("CircleShape2D_lbhrr")
 
 [node name="OccupiedSpace" type="Area2D" parent="." unique_id=664005264]
+disable_mode = 2
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape2D" parent="OccupiedSpace" unique_id=1805450849]
 position = Vector2(0.5, 4.5)
 shape = SubResource("RectangleShape2D_ktxwe")
-debug_color = Color(0.9454072, 0.13633195, 0.48345697, 0.41960785)
 
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
 [connection signal="body_exited" from="EnemyDetector" to="." method="_on_enemy_detector_body_exited"]

@@ -58,6 +58,7 @@ func spawn_arrow() -> void:
 	var arrow := Arrow.new()
 	arrow.texture = arrow_texture
 	arrow.start = global_position + shoot_start
+	arrow.position = arrow.start
 	arrow.end = target.global_position + target.center_offset
 	arrow.control = (arrow.start + arrow.end) / 2 - Vector2(0, arrow_max_height)
 	arrow.duration = (arrow.start - arrow.end).length() / arrow_speed
