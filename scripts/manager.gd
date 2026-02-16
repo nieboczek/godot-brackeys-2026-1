@@ -39,6 +39,7 @@ signal blood_changed(new_blood: int)
 signal new_round(n: int)
 
 var current_round: Array[SpawnInfo]
+var round_stopped: bool = true
 var round_num: int = 0
 var round_timer: float = 0.0
 var health: int = 50:
@@ -69,24 +70,32 @@ func damage(dmg: int) -> void:
 
 
 func start_round() -> void:
+	if round_num >= ROUNDS.size():
+		Log.err("No more rounds found, looping back to round 0")
+		round_num = 0
+	
 	Log.main("Started round ", round_num)
 	current_round = []
 	for string in ROUNDS[round_num]:
 		current_round.append(SpawnInfo.of(string))
 	
+	round_stopped = false
 	round_num += 1
 	new_round.emit(round_num)
 
 
 func _process(delta: float) -> void:
 	round_timer += delta
-	if !current_round.is_empty() and current_round[0].time <= round_timer:
+	if not current_round.is_empty() and current_round[0].time <= round_timer:
 		var enemy = current_round.pop_front()
 
 		var instance := preload("res://scenes/enemy.tscn").instantiate()
 		instance.res = ENEMY_MAP[enemy.enemy]
 		
 		Game.instance.path.add_child(instance)
+	
+	if not round_stopped and Game.instance.path.get_children().is_empty():
+		round_stopped = true
 
 
 class SpawnInfo:

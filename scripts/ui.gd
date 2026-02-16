@@ -93,3 +93,7 @@ func _set_label(health: int, blood: int) -> void:
 
 func _new_round(n: int) -> void:
 	round_label.text = str(n)
+
+func _on_round_button_pressed() -> void:
+	if Manager.round_stopped:
+		Manager.start_round()
