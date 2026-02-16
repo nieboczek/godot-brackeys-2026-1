@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://3qb04ojt8bua"]
 
-[ext_resource type="Script" uid="uid://co2gthgy5vrof" path="res://scripts/tower_panel.gd" id="1_f8845"]
+[ext_resource type="Script" uid="uid://co2gthgy5vrof" path="res://scripts/tower/tower_panel.gd" id="1_f8845"]
 [ext_resource type="Texture2D" uid="uid://y3nllloc1fa1" path="res://assets/basic_tower.png" id="1_ls63v"]
 
 [node name="TowerPanel" type="PanelContainer" unique_id=790190272]

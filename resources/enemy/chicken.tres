@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://o8lnd3pg1hxh"]
+
+[ext_resource type="Script" uid="uid://b668sg8qgtwit" path="res://scripts/enemy/enemy_resource.gd" id="1_451sw"]
+[ext_resource type="Texture2D" uid="uid://bjh16rermk3nj" path="res://assets/chicken.png" id="2_watnq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_svj2r"]
+size = Vector2(30, 18)
+
+[resource]
+script = ExtResource("1_451sw")
+texture = ExtResource("2_watnq")
+hitbox = SubResource("RectangleShape2D_svj2r")
+hitbox_pos = Vector2(-3, -5)
+center_offset = Vector2(0, -6)
+pos = Vector2(5, -26)
+speed = 35.0
+health = 4
+blood_value = 1
+metadata/_custom_type_script = "uid://b668sg8qgtwit"

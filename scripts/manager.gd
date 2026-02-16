@@ -1,11 +1,11 @@
 extends Node
 
-const ENEMY_MAP: Dictionary[String, PackedScene] = {
-	"sheep": preload("res://scenes/enemy/sheep.tscn"),
-	"cow": preload("res://scenes/enemy/cow.tscn"),
-	"pig": preload("res://scenes/enemy/pig.tscn"),
-	"chicken": preload("res://scenes/enemy/chicken.tscn"),
-	"duck": preload("res://scenes/enemy/duck.tscn"),
+const ENEMY_MAP: Dictionary[String, EnemyResource] = {
+	"sheep": preload("res://resources/enemy/sheep.tres"),
+	"cow": preload("res://resources/enemy/cow.tres"),
+	"pig": preload("res://resources/enemy/pig.tres"),
+	"chicken": preload("res://resources/enemy/chicken.tres"),
+	"duck": preload("res://resources/enemy/duck.tres"),
 }
 
 const ROUNDS: Array[Array] = [
@@ -82,8 +82,11 @@ func _process(delta: float) -> void:
 	round_timer += delta
 	if !current_round.is_empty() and current_round[0].time <= round_timer:
 		var enemy = current_round.pop_front()
-		var spawned := ENEMY_MAP[enemy.enemy].instantiate()
-		Game.instance.path.add_child(spawned)
+
+		var instance := preload("res://scenes/enemy.tscn").instantiate()
+		instance.res = ENEMY_MAP[enemy.enemy]
+		
+		Game.instance.path.add_child(instance)
 
 
 class SpawnInfo:
