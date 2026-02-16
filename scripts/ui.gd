@@ -2,7 +2,9 @@ extends Control
 
 @onready var hp_label: RichTextLabel = $HPLabel
 @onready var round_label: Label = $RoundLabel
+@onready var raycast: RayCast2D = $Raycast
 
+var selected_tower: Node2D
 var placing_tower: Node2D
 var bodies_overlapping: int = 0
 
@@ -16,10 +18,15 @@ func _ready() -> void:
 
 func _draw() -> void:
 	if placing_tower:
-		draw_circle(placing_tower.position, placing_tower.tower_range, Color(1, 1, 1, 0.1), true)
+		draw_circle(placing_tower.position, placing_tower.tower_range, Color(1, 1, 1, 0.1))
+	if selected_tower:
+		draw_circle(selected_tower.position, selected_tower.tower_range, Color(1, 1, 1, 0.1))
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"place_tower") and placing_tower != null and bodies_overlapping == 0:
+	if not event.is_action_pressed(&"place_tower"):
+		return
+		
+	if placing_tower != null and bodies_overlapping == 0:
 		var area: Area2D = placing_tower.get_node("OccupiedSpace")
 		area.area_entered.disconnect(_area_entered)
 		area.area_exited.disconnect(_area_exited)
@@ -31,12 +38,21 @@ func _input(event: InputEvent) -> void:
 		placing_tower = null
 		queue_redraw()
 		Log.debug("Placed tower")
+	elif raycast.is_colliding():
+		selected_tower = raycast.get_collider().get_parent()
+		queue_redraw()
+	else:
+		selected_tower = null
+		queue_redraw()
 
 func _process(_delta: float) -> void:
+	var mouse_pos := get_global_mouse_position()
+	raycast.position = mouse_pos
+	
 	if placing_tower == null:
 		return
 
-	var pos := get_global_mouse_position()
+	var pos := mouse_pos
 	placing_tower.position = pos
 	queue_redraw()
 

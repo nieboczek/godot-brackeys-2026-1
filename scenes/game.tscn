@@ -73,4 +73,12 @@ tower_texture = ExtResource("5_p57ef")
 tower_scene = ExtResource("4_lbhrr")
 cost = 50
 
+[node name="Raycast" type="RayCast2D" parent="Camera/UI" unique_id=997931772]
+position = Vector2(320, 180)
+target_position = Vector2(0, 0)
+collision_mask = 4
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+
 [node name="Towers" type="Node" parent="." unique_id=1082183749]
