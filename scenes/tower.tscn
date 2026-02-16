@@ -17,6 +17,7 @@ size = Vector2(43, 53)
 script = ExtResource("2_ktxwe")
 cooldown = 0.8
 arrow_speed = 130.0
+detector_offset = Vector2(0, -17)
 shoot_start = Vector2(-4, -39)
 arrow_texture = ExtResource("3_ktxwe")
 arrow_max_height = 40.0

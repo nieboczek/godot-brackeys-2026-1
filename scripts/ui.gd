@@ -4,8 +4,8 @@ extends Control
 @onready var round_label: Label = $RoundLabel
 @onready var raycast: RayCast2D = $Raycast
 
-var selected_tower: Node2D
-var placing_tower: Node2D
+var selected_tower: Tower
+var placing_tower: Tower
 var bodies_overlapping: int = 0
 
 func _ready() -> void:
@@ -18,9 +18,9 @@ func _ready() -> void:
 
 func _draw() -> void:
 	if placing_tower:
-		draw_circle(placing_tower.position, placing_tower.tower_range, Color(1, 1, 1, 0.1))
+		draw_circle(placing_tower.position + placing_tower.detector_offset, placing_tower.tower_range, Color(1, 1, 1, 0.1))
 	if selected_tower:
-		draw_circle(selected_tower.position, selected_tower.tower_range, Color(1, 1, 1, 0.1))
+		draw_circle(selected_tower.position + selected_tower.detector_offset, selected_tower.tower_range, Color(1, 1, 1, 0.1))
 
 func _input(event: InputEvent) -> void:
 	if not event.is_action_pressed(&"place_tower"):
