@@ -13,7 +13,6 @@ hitbox_pos = Vector2(0.25, -15.75)
 texture = ExtResource("2_tefkr")
 center_offset = Vector2(-4, -20)
 pos = Vector2(-1, -25)
-mirror_horizontal = true
 speed = 30.0
 health = 6
 damage = 2

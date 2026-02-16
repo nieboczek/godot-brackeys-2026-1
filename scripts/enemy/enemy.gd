@@ -37,6 +37,7 @@ func add_damage(dmg: int) -> void:
 	if health <= 0:
 		set_process(false)
 		Manager.blood += res.blood_value
+		modulate = Color.WHITE
 		$CharacterBody/Sprite.hide()
 		$GPUParticles.restart()
 		await get_tree().create_timer(3.0).timeout

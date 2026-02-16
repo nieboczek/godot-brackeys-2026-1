@@ -76,9 +76,9 @@ func spawn_arrow() -> void:
 
 
 func _hit_target(body: Node2D) -> void:
+	body.modulate = Color.RED
 	body.add_damage(damage)
 	if not body.is_queued_for_deletion():
-		body.modulate = Color.RED
 		await get_tree().create_timer(0.5).timeout
 		if body:
 			body.modulate = Color.WHITE
