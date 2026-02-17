@@ -49,7 +49,9 @@ script = ExtResource("1_7p1mj")
 
 [node name="CharacterBody" type="CharacterBody2D" parent="." unique_id=1017641450]
 
-[node name="Sprite" type="Sprite2D" parent="CharacterBody" unique_id=24252079]
+[node name="Anchor" type="Node2D" parent="CharacterBody" unique_id=1320892642]
+
+[node name="Sprite" type="Sprite2D" parent="CharacterBody/Anchor" unique_id=24252079]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="CharacterBody" unique_id=627494903]
 

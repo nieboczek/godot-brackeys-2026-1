@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://bajmcvxa3d5mw"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y27vo"]
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_obtbe"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jowd2"]
@@ -9,6 +11,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xr0bn"]
 
 [resource]
+Button/styles/disabled = SubResource("StyleBoxEmpty_y27vo")
 Button/styles/focus = SubResource("StyleBoxEmpty_obtbe")
 Button/styles/hover = SubResource("StyleBoxEmpty_jowd2")
 Button/styles/normal = SubResource("StyleBoxEmpty_jheyn")

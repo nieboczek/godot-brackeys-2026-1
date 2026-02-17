@@ -21,16 +21,16 @@ const ROUNDS: Array[Array] = [
 		"6: pig",
 		"10: sheep",
 		"14: sheep",
-		"16: cow",
+		"18: cow",
 	],
 	[
-		"0.1: pig",
 		"2: pig",
-		"4.1: sheep",
-		"6.1: pig",
-		"10.1: pig",
-		"11.1: cow",
-		"14.1: pig",
+		"6: duck",
+		"8: sheep",
+		"10: duck",
+		"14: chicken",
+		"18: cow",
+		"20: pig",
 	]
 ]
 
@@ -38,6 +38,7 @@ signal health_changed(new_health: int)
 signal blood_changed(new_blood: int)
 signal new_round(n: int)
 
+var predicted_health: Dictionary[Enemy, int] = {}
 var current_round: Array[SpawnInfo]
 var round_stopped: bool = true
 var round_num: int = 0
@@ -53,7 +54,7 @@ var blood: int = 50:
 
 
 func _ready() -> void:
-	Console.register_command(Command.of("start_round").executes(start_round))
+	Console.register_command(Command.of("start_round").args(["round number: int"]).executes(_start_round_cmd))
 	Console.register_command(Command.of("health").args(["new health: int"]).executes(_health_cmd))
 	Console.register_command(Command.of("blood").args(["new blood: int"]).executes(_blood_cmd))
 
@@ -67,6 +68,15 @@ func _blood_cmd(new_blood: int) -> void:
 
 func damage(dmg: int) -> void:
 	health -= dmg
+
+
+func _start_round_cmd(n: int) -> void:
+	if n < 1:
+		Log.out_err("round number must be higher than 0")
+		return
+	
+	round_num = n - 1
+	start_round()
 
 
 func start_round() -> void:
@@ -87,10 +97,10 @@ func start_round() -> void:
 func _process(delta: float) -> void:
 	round_timer += delta
 	if not current_round.is_empty() and current_round[0].time <= round_timer:
-		var enemy = current_round.pop_front()
-
-		var instance := preload("res://scenes/enemy.tscn").instantiate()
-		instance.res = ENEMY_MAP[enemy.enemy]
+		var resource := ENEMY_MAP[current_round.pop_front().enemy]
+		var instance: Enemy = preload("res://scenes/enemy.tscn").instantiate()
+		predicted_health[instance] = resource.health
+		instance.res = resource
 		
 		Game.instance.path.add_child(instance)
 	
@@ -104,7 +114,7 @@ class SpawnInfo:
 	
 	static func of(string: String) -> SpawnInfo:
 		var info := new()
-		var split := string.split(" ")
+		var split := string.split(":")
 		info.enemy = split[1].strip_edges()
 		info.time = float(split[0].strip_edges())
 		return info

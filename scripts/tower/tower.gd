@@ -12,7 +12,6 @@ extends Node2D
 @export var arrow_max_height: float = 60.0
 
 var enemies_to_shoot: Array[Enemy] = []
-var predicted_health: Array[int] = []
 var current_cooldown := 0.0
 
 func _ready() -> void:
@@ -24,15 +23,11 @@ func enable() -> void:
 
 
 func _on_enemy_detector_body_entered(body: Node2D) -> void:
-	var enemy := body.get_parent()
-	enemies_to_shoot.append(enemy)
-	predicted_health.append(enemy.health)
+	enemies_to_shoot.append(body.get_parent())
 
 
 func _on_enemy_detector_body_exited(body: Node2D) -> void:
-	var idx := enemies_to_shoot.find(body.get_parent())
-	enemies_to_shoot.remove_at(idx)
-	predicted_health.remove_at(idx)
+	enemies_to_shoot.erase(body.get_parent())
 
 
 func _process(delta: float) -> void:
@@ -47,20 +42,18 @@ func _process(delta: float) -> void:
 
 func spawn_arrow() -> void:
 	var target: Enemy = null
-	for i in range(enemies_to_shoot.size()):
-		var predicted := predicted_health[i]
+	for enemy in enemies_to_shoot:
+		var predicted := Manager.predicted_health[enemy]
 		if predicted <= 0:
 			continue
 		
-		var enemy := enemies_to_shoot[i]
 		if target == null or target.progress < enemy.progress:
 			target = enemy
 
 	if target == null:
 		return
 
-	var i := enemies_to_shoot.find(target)
-	predicted_health[i] -= damage
+	Manager.predicted_health[target] -= damage
 	
 	var arrow := Arrow.new()
 	arrow.texture = arrow_texture
@@ -76,9 +69,4 @@ func spawn_arrow() -> void:
 
 
 func _hit_target(body: Node2D) -> void:
-	body.modulate = Color.RED
 	body.add_damage(damage)
-	if not body.is_queued_for_deletion():
-		await get_tree().create_timer(0.5).timeout
-		if body:
-			body.modulate = Color.WHITE

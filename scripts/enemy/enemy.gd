@@ -3,6 +3,7 @@ extends PathFollow2D
 
 var res: EnemyResource
 var health: int
+var time_left_red: float = INF
 
 
 func _ready() -> void:
@@ -10,22 +11,27 @@ func _ready() -> void:
 	shape.position = res.hitbox_pos
 	shape.shape = res.hitbox
 	
-	var sprite: Sprite2D = $CharacterBody/Sprite
+	var sprite: Sprite2D = $CharacterBody/Anchor/Sprite
 	sprite.position = res.pos
 	sprite.texture = res.texture
 	sprite.flip_h = res.mirror_horizontal
 	
 	health = res.health
 	
-	var tween := sprite.create_tween()
+	var anchor := $CharacterBody/Anchor
+	var tween := anchor.create_tween()
 	tween.set_loops(2147483647)
-	tween.tween_property(sprite, "scale:x", 0.9, 1.0)
-	tween.parallel().tween_property(sprite, "scale:y", 1.1, 1.0)
-	tween.tween_property(sprite, "scale:x", 1.1, 1.0)
-	tween.parallel().tween_property(sprite, "scale:y", 0.9, 1.0)
+	tween.tween_property(anchor, "scale:x", 0.9, 1.0)
+	tween.parallel().tween_property(anchor, "scale:y", 1.1, 1.0)
+	tween.tween_property(anchor, "scale:x", 1.1, 1.0)
+	tween.parallel().tween_property(anchor, "scale:y", 0.9, 1.0)
 
 
 func _process(delta: float) -> void:
+	time_left_red -= delta
+	if time_left_red <= 0.0:
+		modulate = Color.WHITE
+	
 	progress += res.speed * delta
 	if progress_ratio > 0.99:
 		Manager.damage(res.damage)
@@ -33,15 +39,19 @@ func _process(delta: float) -> void:
 
 
 func add_damage(dmg: int) -> void:
+	if not is_processing():
+		return
+	
 	health -= dmg
+	
 	if health <= 0:
 		set_process(false)
 		Manager.blood += res.blood_value
 		modulate = Color.WHITE
-		$CharacterBody/Sprite.hide()
+		$CharacterBody/Anchor/Sprite.hide()
 		$GPUParticles.restart()
 		await get_tree().create_timer(3.0).timeout
 		queue_free()
-
-func will_kill(dmg: int) -> bool:
-	return dmg > health
+	else:
+		modulate = Color(1, 0.2, 0.2)
+		time_left_red = 0.5
