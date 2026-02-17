@@ -37,6 +37,7 @@ offset_left = -320.0
 offset_top = -180.0
 offset_right = 320.0
 offset_bottom = 180.0
+mouse_filter = 2
 theme = ExtResource("3_u5sy4")
 script = ExtResource("3_lbhrr")
 
@@ -64,6 +65,7 @@ anchor_right = 1.0
 offset_left = -7.0
 offset_bottom = 17.0
 grow_horizontal = 0
+theme_override_font_sizes/font_size = 16
 text = "0"
 
 [node name="Towers" type="HBoxContainer" parent="Camera/UI" unique_id=698785130]
@@ -94,6 +96,23 @@ offset_top = -40.0
 grow_horizontal = 0
 grow_vertical = 0
 texture_normal = ExtResource("8_gee14")
+
+[node name="TowerOptions" type="PanelContainer" parent="Camera/UI" unique_id=1295098341]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -22.0
+offset_bottom = 22.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Upgrades" type="VBoxContainer" parent="Camera/UI/TowerOptions" unique_id=886375683]
+layout_mode = 2
 
 [node name="Towers" type="Node" parent="." unique_id=1082183749]
 

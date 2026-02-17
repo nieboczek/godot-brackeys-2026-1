@@ -13,6 +13,20 @@ extends Node2D
 
 var enemies_to_shoot: Array[Enemy] = []
 var current_cooldown := 0.0
+var chains: Array[UpgradeChain] = [
+	UpgradeChain.create("sharper", [
+		preload("res://resources/upgrade/sharper_arrows.tres")
+	])
+]
+
+func add_upgrade(chain: UpgradeChain, upgrade: UpgradeResource) -> void:
+	for my_chain in chains:
+		if my_chain.id == chain.id:
+			my_chain.owned_upgrades.append(upgrade)
+			return
+	
+	Log.err("Upgrade not added; right upgrade chain not found")
+
 
 func _ready() -> void:
 	$EnemyDetector/CollisionShape.shape.radius = tower_range

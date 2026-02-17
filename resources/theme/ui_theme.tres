@@ -11,8 +11,10 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xr0bn"]
 
 [resource]
+BoxContainer/constants/separation = 0
 Button/styles/disabled = SubResource("StyleBoxEmpty_y27vo")
 Button/styles/focus = SubResource("StyleBoxEmpty_obtbe")
 Button/styles/hover = SubResource("StyleBoxEmpty_jowd2")
 Button/styles/normal = SubResource("StyleBoxEmpty_jheyn")
 Button/styles/pressed = SubResource("StyleBoxEmpty_xr0bn")
+Label/font_sizes/font_size = 8

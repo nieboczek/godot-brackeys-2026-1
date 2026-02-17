@@ -1,5 +1,7 @@
 extends Control
 
+@onready var tower_options: PanelContainer = $TowerOptions
+@onready var tower_upgrades: VBoxContainer = $TowerOptions/Upgrades
 @onready var hp_label: RichTextLabel = $HPLabel
 @onready var round_label: Label = $RoundLabel
 @onready var raycast: RayCast2D = $Raycast
@@ -22,7 +24,7 @@ func _draw() -> void:
 	if selected_tower:
 		draw_circle(selected_tower.position + selected_tower.detector_offset, selected_tower.tower_range, Color(1, 1, 1, 0.1))
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if not event.is_action_pressed(&"place_tower"):
 		return
 		
@@ -40,9 +42,11 @@ func _input(event: InputEvent) -> void:
 		Log.debug("Placed tower")
 	elif raycast.is_colliding():
 		selected_tower = raycast.get_collider().get_parent()
+		populate_tower_options()
 		queue_redraw()
 	else:
 		selected_tower = null
+		clear_tower_options()
 		queue_redraw()
 
 func _process(_delta: float) -> void:
@@ -72,6 +76,23 @@ func _bought(scene: PackedScene) -> void:
 	placing_tower = node
 	placing_tower.modulate = Color(1, 1, 1, 0.7)
 	Log.debug("Started placing tower")
+
+func clear_tower_options() -> void:
+	tower_options.hide()
+	for child in tower_upgrades.get_children():
+		tower_upgrades.remove_child(child)
+
+func populate_tower_options() -> void:
+	tower_options.show()
+	for chain in selected_tower.chains:
+		var interface: TowerUpgrade = preload("res://scenes/tower_upgrade.tscn").instantiate()
+
+		interface.set_chain.call_deferred(chain)
+		interface.bought.connect(_bought_upgrade)
+		tower_upgrades.add_child(interface)
+
+func _bought_upgrade(chain: UpgradeChain, upgrade: UpgradeResource) -> void:
+	selected_tower.add_upgrade(chain, upgrade)
 
 func _area_entered(_body: Area2D) -> void:
 	bodies_overlapping += 1
