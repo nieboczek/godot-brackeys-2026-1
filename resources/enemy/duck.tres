@@ -8,9 +8,9 @@ size = Vector2(44, 29)
 
 [resource]
 script = ExtResource("1_g4gy5")
-texture = ExtResource("2_7d1i4")
 hitbox = SubResource("RectangleShape2D_ttim6")
 hitbox_pos = Vector2(-2, -20.5)
+texture = ExtResource("2_7d1i4")
 center_offset = Vector2(0, -22)
 pos = Vector2(0, -22)
 speed = 32.0
