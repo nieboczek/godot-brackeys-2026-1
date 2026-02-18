@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://b0gy2lj65rvhg" path="res://assets/button/play.png" id="8_gee14"]
 [ext_resource type="Texture2D" uid="uid://csqfmkk53awew" path="res://assets/deco/grass_2.png" id="10_vtaks"]
 [ext_resource type="Texture2D" uid="uid://cnr6jrehm4nol" path="res://assets/deco/rock_1.png" id="11_kvpfn"]
+[ext_resource type="Texture2D" uid="uid://lmhlwhdf5mt5" path="res://assets/deco/grass_3.png" id="12_dinhu"]
+[ext_resource type="Texture2D" uid="uid://b5xlh6yj1l71l" path="res://assets/deco/rock_2.png" id="13_kvuet"]
 
 [sub_resource type="Curve2D" id="Curve2D_lbhrr"]
 _data = {
@@ -36,6 +38,8 @@ curve = SubResource("Curve2D_lbhrr")
 position = Vector2(320, 180)
 
 [node name="UI" type="Control" parent="Camera" unique_id=416540105]
+z_index = 1000
+z_as_relative = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = -320.0
@@ -130,11 +134,47 @@ position = Vector2(368, 285)
 texture = ExtResource("10_vtaks")
 
 [node name="Sprite3" type="Sprite2D" parent="Towers" unique_id=223167041]
-position = Vector2(490, 146)
+position = Vector2(597, 59)
 texture = ExtResource("11_kvpfn")
 
 [node name="Sprite4" type="Sprite2D" parent="Towers" unique_id=2147197749]
-position = Vector2(195, 80)
+position = Vector2(370, 49)
 texture = ExtResource("11_kvpfn")
+
+[node name="Sprite5" type="Sprite2D" parent="Towers" unique_id=1206705401]
+position = Vector2(88, 276)
+texture = ExtResource("3_0tnpc")
+
+[node name="Sprite6" type="Sprite2D" parent="Towers" unique_id=868824320]
+position = Vector2(602, 117)
+texture = ExtResource("10_vtaks")
+
+[node name="Sprite7" type="Sprite2D" parent="Towers" unique_id=1939110244]
+position = Vector2(275, 316)
+texture = ExtResource("11_kvpfn")
+
+[node name="Sprite8" type="Sprite2D" parent="Towers" unique_id=645931929]
+position = Vector2(342, 41)
+texture = ExtResource("12_dinhu")
+
+[node name="Sprite9" type="Sprite2D" parent="Towers" unique_id=1098578164]
+position = Vector2(554, 301)
+texture = ExtResource("12_dinhu")
+
+[node name="Sprite10" type="Sprite2D" parent="Towers" unique_id=314030897]
+position = Vector2(136, 142)
+texture = ExtResource("13_kvuet")
+
+[node name="Sprite11" type="Sprite2D" parent="Towers" unique_id=539717418]
+position = Vector2(553, 166)
+texture = ExtResource("13_kvuet")
+
+[node name="Sprite12" type="Sprite2D" parent="Towers" unique_id=645114353]
+position = Vector2(41, 89)
+texture = ExtResource("12_dinhu")
+
+[node name="Sprite13" type="Sprite2D" parent="Towers" unique_id=1642647130]
+position = Vector2(197, 35)
+texture = ExtResource("10_vtaks")
 
 [connection signal="pressed" from="Camera/UI/RoundButton" to="Camera/UI" method="_on_round_button_pressed"]
