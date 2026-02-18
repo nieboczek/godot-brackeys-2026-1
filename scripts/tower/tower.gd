@@ -20,15 +20,9 @@ var chains: Array[UpgradeChain] = [
 ]
 
 func add_upgrade(chain: UpgradeChain, upgrade: UpgradeResource) -> void:
-	for my_chain in chains:
-		if my_chain.id == chain.id:
-			if upgrade.id == "sharper_arrows":
-				damage += 1
-			
-			my_chain.owned_upgrades.append(upgrade)
-			return
-	
-	Log.err("Upgrade not added; right upgrade chain not found")
+	chain.owned_upgrades.append(upgrade)
+	if upgrade.id == "sharper_arrows":
+		damage += 1
 
 
 func _ready() -> void:

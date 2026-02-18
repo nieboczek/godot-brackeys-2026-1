@@ -95,7 +95,9 @@ func start_round() -> void:
 
 
 func _process(delta: float) -> void:
-	round_timer += delta
+	if not round_stopped:
+		round_timer += delta
+
 	if not current_round.is_empty() and current_round[0].time <= round_timer:
 		var resource := ENEMY_MAP[current_round.pop_front().enemy]
 		var instance: Enemy = preload("res://scenes/enemy.tscn").instantiate()
@@ -104,8 +106,9 @@ func _process(delta: float) -> void:
 		
 		Game.instance.path.add_child(instance)
 	
-	if not round_stopped and Game.instance.path.get_children().is_empty():
+	if not round_stopped and current_round.is_empty() and Game.instance.path.get_children().is_empty():
 		round_stopped = true
+		round_timer = 0.0
 
 
 class SpawnInfo:

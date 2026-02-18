@@ -75,7 +75,6 @@ func _bought(scene: PackedScene) -> void:
 	
 	placing_tower = node
 	placing_tower.modulate = Color(1, 1, 1, 0.7)
-	Log.debug("Started placing tower")
 
 func clear_tower_options() -> void:
 	tower_options.hide()
