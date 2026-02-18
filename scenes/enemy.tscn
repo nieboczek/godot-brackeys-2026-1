@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://sweimbvqq3ow"]
 
 [ext_resource type="Script" uid="uid://r4jcflrdc5t5" path="res://scripts/enemy/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://bi85m0xm8hbwm" path="res://assets/cow.png" id="2_4ra3w"]
 [ext_resource type="Texture2D" uid="uid://f1nqbenjx37s" path="res://assets/blood.png" id="2_md0e3"]
 
 [sub_resource type="Curve" id="Curve_4ra3w"]
-_data = [Vector2(0.754717, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.6985816, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_qrg1y"]
@@ -19,7 +20,7 @@ point_count = 2
 curve = SubResource("Curve_5uy6h")
 
 [sub_resource type="Curve" id="Curve_c4w8v"]
-_data = [Vector2(0.5377358, 0), 0.0, 0.0, 0, 0, Vector2(0.5518868, 1), 0.0, 0.0, 0, 0]
+_data = [Vector2(0.46453896, 0), 0.0, 0.0, 0, 0, Vector2(0.4716312, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_48igr"]
@@ -32,14 +33,14 @@ angle_max = 180.00002
 angle_curve = SubResource("CurveTexture_cdqli")
 direction = Vector3(0, -1, 0)
 spread = 15.0
-initial_velocity_min = 140.0
-initial_velocity_max = 160.0
+initial_velocity_min = 120.0
+initial_velocity_max = 140.0
 gravity = Vector3(0, 200, 0)
 damping_min = 1000.00006
 damping_max = 1000.00006
 damping_curve = SubResource("CurveTexture_48igr")
-scale_min = 0.5
-scale_max = 0.5
+scale_min = 0.35
+scale_max = 0.35
 alpha_curve = SubResource("CurveTexture_qrg1y")
 
 [node name="Enemy" type="PathFollow2D" unique_id=774734209]
@@ -48,15 +49,18 @@ loop = false
 script = ExtResource("1_7p1mj")
 
 [node name="CharacterBody" type="CharacterBody2D" parent="." unique_id=1017641450]
+scale = Vector2(0.65, 0.65)
 
 [node name="Anchor" type="Node2D" parent="CharacterBody" unique_id=1320892642]
 
 [node name="Sprite" type="Sprite2D" parent="CharacterBody/Anchor" unique_id=24252079]
+position = Vector2(0, -24)
+texture = ExtResource("2_4ra3w")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="CharacterBody" unique_id=627494903]
 
 [node name="GPUParticles" type="GPUParticles2D" parent="." unique_id=312433705]
-position = Vector2(0, -22)
+position = Vector2(0, -16)
 emitting = false
 amount = 10
 texture = ExtResource("2_md0e3")

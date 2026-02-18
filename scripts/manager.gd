@@ -10,11 +10,11 @@ const ENEMY_MAP: Dictionary[String, EnemyResource] = {
 
 const ROUNDS: Array[Array] = [
 	[
-		"1: sheep",
-		"4: duck",
-		"7: chicken",
-		"10: cow",
-		"13: pig",
+		"0: sheep",
+		"3: duck",
+		"6: chicken",
+		"9: cow",
+		"12: pig",
 	],
 	[
 		"2: cow",
