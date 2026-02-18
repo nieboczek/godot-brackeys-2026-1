@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://y3nllloc1fa1" path="res://assets/basic_tower.png" id="1_ay4al"]
 [ext_resource type="Script" uid="uid://da03ei2kln5ks" path="res://scripts/tower/tower.gd" id="2_ktxwe"]
 [ext_resource type="Texture2D" uid="uid://b4h28bh7tvqf5" path="res://assets/arrow.png" id="3_ktxwe"]
+[ext_resource type="PackedScene" uid="uid://di6e7xqv8sg7s" path="res://scenes/blood_mask.tscn" id="4_qrbg1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
 radius = 80.0
@@ -53,6 +54,10 @@ monitoring = false
 [node name="CollisionShape" type="CollisionShape2D" parent="SelectableArea" unique_id=526351635]
 position = Vector2(1.5, -10.5)
 shape = SubResource("RectangleShape2D_qrbg1")
+
+[node name="BloodMask" parent="." unique_id=1543043193 instance=ExtResource("4_qrbg1")]
+visible = false
+position = Vector2(1, 11)
 
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
 [connection signal="body_exited" from="EnemyDetector" to="." method="_on_enemy_detector_body_exited"]

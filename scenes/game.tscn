@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bsoaajk6s67fl"]
 
 [ext_resource type="Script" uid="uid://cvmk843rlvkc1" path="res://scripts/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://clpa0dn5evqm1" path="res://assets/deco/grass_1.png" id="3_0tnpc"]
 [ext_resource type="Script" uid="uid://dkd8o18gghrmw" path="res://scripts/ui.gd" id="3_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://bs0sowku04u54" path="res://assets/map_test.png" id="3_lnu2h"]
 [ext_resource type="Theme" uid="uid://bajmcvxa3d5mw" path="res://resources/theme/ui_theme.tres" id="3_u5sy4"]
@@ -8,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://bpplrurdo2ijl" path="res://scenes/tower.tscn" id="4_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://y3nllloc1fa1" path="res://assets/basic_tower.png" id="5_p57ef"]
 [ext_resource type="Texture2D" uid="uid://b0gy2lj65rvhg" path="res://assets/button/play.png" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://csqfmkk53awew" path="res://assets/deco/grass_2.png" id="10_vtaks"]
+[ext_resource type="Texture2D" uid="uid://cnr6jrehm4nol" path="res://assets/deco/rock_1.png" id="11_kvpfn"]
 
 [sub_resource type="Curve2D" id="Curve2D_lbhrr"]
 _data = {
@@ -21,6 +24,8 @@ path = NodePath("Path")
 towers = NodePath("Towers")
 
 [node name="Map" type="Sprite2D" parent="." unique_id=1460714089]
+z_index = -1010
+z_as_relative = false
 position = Vector2(320, 180)
 texture = ExtResource("3_lnu2h")
 
@@ -115,5 +120,21 @@ grow_vertical = 2
 layout_mode = 2
 
 [node name="Towers" type="Node" parent="." unique_id=1082183749]
+
+[node name="Sprite1" type="Sprite2D" parent="Towers" unique_id=2127408647]
+position = Vector2(252, 179)
+texture = ExtResource("3_0tnpc")
+
+[node name="Sprite2" type="Sprite2D" parent="Towers" unique_id=328866298]
+position = Vector2(368, 285)
+texture = ExtResource("10_vtaks")
+
+[node name="Sprite3" type="Sprite2D" parent="Towers" unique_id=223167041]
+position = Vector2(490, 146)
+texture = ExtResource("11_kvpfn")
+
+[node name="Sprite4" type="Sprite2D" parent="Towers" unique_id=2147197749]
+position = Vector2(195, 80)
+texture = ExtResource("11_kvpfn")
 
 [connection signal="pressed" from="Camera/UI/RoundButton" to="Camera/UI" method="_on_round_button_pressed"]

@@ -11,6 +11,8 @@ extends Node2D
 @export var arrow_texture: Texture2D
 @export var arrow_max_height: float = 60.0
 
+@onready var blood_mask: BloodMask = $BloodMask
+
 var enemies_to_shoot: Array[Enemy] = []
 var current_cooldown := 0.0
 var chains: Array[UpgradeChain] = [
@@ -23,6 +25,7 @@ func add_upgrade(chain: UpgradeChain, upgrade: UpgradeResource) -> void:
 	chain.owned_upgrades.append(upgrade)
 	if upgrade.id == "sharper_arrows":
 		damage += 1
+		blood_mask.add_new_scale(0.2)
 
 
 func _ready() -> void:
@@ -31,6 +34,8 @@ func _ready() -> void:
 
 func enable() -> void:
 	$EnemyDetector.monitoring = true
+	blood_mask.reposition()
+	blood_mask.show()
 
 
 func _on_enemy_detector_body_entered(body: Node2D) -> void:

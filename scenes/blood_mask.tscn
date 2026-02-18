@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://di6e7xqv8sg7s"]
+
+[ext_resource type="Texture2D" uid="uid://wioe6hf0kfa6" path="res://assets/circle_128.png" id="1_50oek"]
+[ext_resource type="Texture2D" uid="uid://cmshjtor5b2wg" path="res://assets/map_blood.png" id="2_qw1cg"]
+[ext_resource type="Script" uid="uid://odkbnmn47nt3" path="res://scripts/blood_mask.gd" id="2_ugvxh"]
+
+[node name="BloodMask" type="Sprite2D" unique_id=1543043193]
+show_behind_parent = true
+clip_children = 1
+z_index = -1000
+z_as_relative = false
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_50oek")
+script = ExtResource("2_ugvxh")
+
+[node name="Map" type="Sprite2D" parent="." unique_id=289730454]
+texture = ExtResource("2_qw1cg")

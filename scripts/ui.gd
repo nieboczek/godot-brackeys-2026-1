@@ -42,6 +42,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		Log.debug("Placed tower")
 	elif raycast.is_colliding():
 		selected_tower = raycast.get_collider().get_parent()
+		clear_tower_options()
 		populate_tower_options()
 		queue_redraw()
 	else:
