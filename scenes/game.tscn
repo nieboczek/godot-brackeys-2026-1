@@ -20,6 +20,21 @@ _data = {
 }
 point_count = 22
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
+size = Vector2(14, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trtic"]
+size = Vector2(13, 17)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ir15t"]
+size = Vector2(19, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ca42v"]
+size = Vector2(22, 18)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rysoc"]
+size = Vector2(7, 7)
+
 [node name="Game" type="Node2D" unique_id=183484459 node_paths=PackedStringArray("path", "towers")]
 script = ExtResource("1_uwrxv")
 path = NodePath("Path")
@@ -125,56 +140,160 @@ layout_mode = 2
 
 [node name="Towers" type="Node" parent="." unique_id=1082183749]
 
-[node name="Sprite1" type="Sprite2D" parent="Towers" unique_id=2127408647]
+[node name="StaticBody2D" type="StaticBody2D" parent="Towers" unique_id=660248029]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D" unique_id=2127408647]
 position = Vector2(252, 179)
 texture = ExtResource("3_0tnpc")
 
-[node name="Sprite2" type="Sprite2D" parent="Towers" unique_id=328866298]
-position = Vector2(368, 285)
-texture = ExtResource("10_vtaks")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D" unique_id=181750681]
+position = Vector2(252, 182.5)
+shape = SubResource("RectangleShape2D_kvuet")
 
-[node name="Sprite3" type="Sprite2D" parent="Towers" unique_id=223167041]
-position = Vector2(597, 59)
-texture = ExtResource("11_kvpfn")
+[node name="StaticBody2D2" type="StaticBody2D" parent="Towers" unique_id=1186521750]
+collision_layer = 8
+collision_mask = 0
 
-[node name="Sprite4" type="Sprite2D" parent="Towers" unique_id=2147197749]
-position = Vector2(370, 49)
-texture = ExtResource("11_kvpfn")
-
-[node name="Sprite5" type="Sprite2D" parent="Towers" unique_id=1206705401]
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D2" unique_id=1206705401]
 position = Vector2(88, 276)
 texture = ExtResource("3_0tnpc")
 
-[node name="Sprite6" type="Sprite2D" parent="Towers" unique_id=868824320]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D2" unique_id=2129726604]
+position = Vector2(88, 279.5)
+shape = SubResource("RectangleShape2D_kvuet")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Towers" unique_id=1246046482]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D3" unique_id=1642647130]
+position = Vector2(197, 35)
+texture = ExtResource("10_vtaks")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D3" unique_id=1030256408]
+position = Vector2(195.5, 39.5)
+shape = SubResource("RectangleShape2D_trtic")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Towers" unique_id=599163952]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D4" unique_id=868824320]
 position = Vector2(602, 117)
 texture = ExtResource("10_vtaks")
 
-[node name="Sprite7" type="Sprite2D" parent="Towers" unique_id=1939110244]
-position = Vector2(275, 316)
-texture = ExtResource("11_kvpfn")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D4" unique_id=481784478]
+position = Vector2(600.5, 121.5)
+shape = SubResource("RectangleShape2D_trtic")
 
-[node name="Sprite8" type="Sprite2D" parent="Towers" unique_id=645931929]
-position = Vector2(342, 41)
-texture = ExtResource("12_dinhu")
+[node name="StaticBody2D5" type="StaticBody2D" parent="Towers" unique_id=2025347009]
+collision_layer = 8
+collision_mask = 0
 
-[node name="Sprite9" type="Sprite2D" parent="Towers" unique_id=1098578164]
-position = Vector2(554, 301)
-texture = ExtResource("12_dinhu")
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D5" unique_id=328866298]
+position = Vector2(368, 285)
+texture = ExtResource("10_vtaks")
 
-[node name="Sprite10" type="Sprite2D" parent="Towers" unique_id=314030897]
-position = Vector2(136, 142)
-texture = ExtResource("13_kvuet")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D5" unique_id=829686981]
+position = Vector2(366.5, 289.5)
+shape = SubResource("RectangleShape2D_trtic")
 
-[node name="Sprite11" type="Sprite2D" parent="Towers" unique_id=539717418]
-position = Vector2(553, 166)
-texture = ExtResource("13_kvuet")
+[node name="StaticBody2D6" type="StaticBody2D" parent="Towers" unique_id=780765063]
+collision_layer = 8
+collision_mask = 0
 
-[node name="Sprite12" type="Sprite2D" parent="Towers" unique_id=645114353]
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D6" unique_id=645114353]
 position = Vector2(41, 89)
 texture = ExtResource("12_dinhu")
 
-[node name="Sprite13" type="Sprite2D" parent="Towers" unique_id=1642647130]
-position = Vector2(197, 35)
-texture = ExtResource("10_vtaks")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D6" unique_id=567890662]
+position = Vector2(41.5, 91)
+shape = SubResource("RectangleShape2D_ir15t")
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="Towers" unique_id=1680521126]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D7" unique_id=645931929]
+position = Vector2(342, 41)
+texture = ExtResource("12_dinhu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D7" unique_id=2006504358]
+position = Vector2(342.5, 43)
+shape = SubResource("RectangleShape2D_ir15t")
+
+[node name="StaticBody2D8" type="StaticBody2D" parent="Towers" unique_id=1005788612]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D8" unique_id=1098578164]
+position = Vector2(554, 301)
+texture = ExtResource("12_dinhu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D8" unique_id=1222702293]
+position = Vector2(554.5, 303)
+shape = SubResource("RectangleShape2D_ir15t")
+
+[node name="StaticBody2D9" type="StaticBody2D" parent="Towers" unique_id=807304044]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D9" unique_id=539717418]
+position = Vector2(553, 166)
+texture = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D9" unique_id=330066442]
+position = Vector2(553, 169)
+shape = SubResource("RectangleShape2D_ca42v")
+
+[node name="StaticBody2D10" type="StaticBody2D" parent="Towers" unique_id=119274445]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D10" unique_id=314030897]
+position = Vector2(136, 142)
+texture = ExtResource("13_kvuet")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D10" unique_id=1519698156]
+position = Vector2(136, 145)
+shape = SubResource("RectangleShape2D_ca42v")
+
+[node name="StaticBody2D11" type="StaticBody2D" parent="Towers" unique_id=1964501012]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D11" unique_id=1939110244]
+position = Vector2(275, 316)
+texture = ExtResource("11_kvpfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D11" unique_id=1944397668]
+position = Vector2(274.5, 316.5)
+shape = SubResource("RectangleShape2D_rysoc")
+
+[node name="StaticBody2D12" type="StaticBody2D" parent="Towers" unique_id=121078331]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D12" unique_id=223167041]
+position = Vector2(597, 59)
+texture = ExtResource("11_kvpfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D12" unique_id=1885485600]
+position = Vector2(596.5, 59.5)
+shape = SubResource("RectangleShape2D_rysoc")
+
+[node name="StaticBody2D13" type="StaticBody2D" parent="Towers" unique_id=1990385156]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="Towers/StaticBody2D13" unique_id=2147197749]
+position = Vector2(370, 49)
+texture = ExtResource("11_kvpfn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Towers/StaticBody2D13" unique_id=180396824]
+position = Vector2(369.5, 49.5)
+shape = SubResource("RectangleShape2D_rysoc")
 
 [connection signal="pressed" from="Camera/UI/RoundButton" to="Camera/UI" method="_on_round_button_pressed"]

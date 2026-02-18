@@ -10,7 +10,16 @@ var selected_tower: Tower
 var placing_tower: Tower
 var bodies_overlapping: int = 0
 
+func _blood_mask_scale_cmd(ascale: float) -> void:
+	if selected_tower == null:
+		Log.out_err("Please select a tower first")
+		return
+
+	selected_tower.blood_mask.set_new_scale(ascale)
+
 func _ready() -> void:
+	Console.register_command(Command.of("set_blood_mask_scale").args(["scale: float"]).executes(_blood_mask_scale_cmd))
+	
 	Manager.health_changed.connect(_health_changed)
 	Manager.blood_changed.connect(_blood_changed)
 	Manager.new_round.connect(_new_round)
@@ -39,7 +48,6 @@ func _unhandled_input(event: InputEvent) -> void:
 		placing_tower.enable()
 		placing_tower = null
 		queue_redraw()
-		Log.debug("Placed tower")
 	elif raycast.is_colliding():
 		selected_tower = raycast.get_collider().get_parent()
 		clear_tower_options()

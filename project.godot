@@ -69,9 +69,10 @@ place_tower={
 
 [layer_names]
 
-2d_physics/layer_1="enemies"
-2d_physics/layer_2="towers"
-2d_physics/layer_3="SELECTABLE TOWERS"
+2d_physics/layer_1="hittable box of enemy"
+2d_physics/layer_2="tower collision with other towers"
+2d_physics/layer_3="selectable part of tower"
+2d_physics/layer_4="foliage"
 
 [rendering]
 
