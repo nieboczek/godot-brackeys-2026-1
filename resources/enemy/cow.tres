@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://dn8nixpnwf7pc"]
 
 [ext_resource type="Texture2D" uid="uid://bi85m0xm8hbwm" path="res://assets/enemy/cow.png" id="1_gytxp"]
+[ext_resource type="Texture2D" uid="uid://dv1taehwjbxod" path="res://assets/enemy/evil_cow.png" id="1_wi4an"]
 [ext_resource type="Script" uid="uid://b668sg8qgtwit" path="res://scripts/enemy/enemy_resource.gd" id="1_xdko0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wi4an"]
@@ -11,7 +12,7 @@ script = ExtResource("1_xdko0")
 hitbox = SubResource("RectangleShape2D_wi4an")
 hitbox_pos = Vector2(-2, -16)
 texture = ExtResource("1_gytxp")
-evil_texture = ExtResource("1_gytxp")
+evil_texture = ExtResource("1_wi4an")
 center_offset = Vector2(-2, -20)
 pos = Vector2(0, -24)
 mirror_horizontal = true

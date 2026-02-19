@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bmof10nj3nhf7" path="res://assets/enemy/duck.png" id="1_7d1i4"]
 [ext_resource type="Script" uid="uid://b668sg8qgtwit" path="res://scripts/enemy/enemy_resource.gd" id="1_g4gy5"]
+[ext_resource type="Texture2D" uid="uid://c3kdv2jlbnc6l" path="res://assets/enemy/evil_duck.png" id="1_ttim6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ttim6"]
 size = Vector2(44, 29)
@@ -11,7 +12,7 @@ script = ExtResource("1_g4gy5")
 hitbox = SubResource("RectangleShape2D_ttim6")
 hitbox_pos = Vector2(-2, -20.5)
 texture = ExtResource("1_7d1i4")
-evil_texture = ExtResource("1_7d1i4")
+evil_texture = ExtResource("1_ttim6")
 center_offset = Vector2(0, -22)
 pos = Vector2(0, -22)
 speed = 25.0

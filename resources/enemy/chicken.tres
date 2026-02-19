@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://o8lnd3pg1hxh"]
 
 [ext_resource type="Script" uid="uid://b668sg8qgtwit" path="res://scripts/enemy/enemy_resource.gd" id="1_451sw"]
+[ext_resource type="Texture2D" uid="uid://byoyhybkyj5p" path="res://assets/enemy/evil_chicken.png" id="1_svj2r"]
 [ext_resource type="Texture2D" uid="uid://bjh16rermk3nj" path="res://assets/enemy/chicken.png" id="1_watnq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_svj2r"]
@@ -11,7 +12,7 @@ script = ExtResource("1_451sw")
 hitbox = SubResource("RectangleShape2D_svj2r")
 hitbox_pos = Vector2(-3, -5)
 texture = ExtResource("1_watnq")
-evil_texture = ExtResource("1_watnq")
+evil_texture = ExtResource("1_svj2r")
 center_offset = Vector2(0, -6)
 pos = Vector2(5, -26)
 speed = 30.0
