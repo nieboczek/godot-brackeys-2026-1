@@ -25,7 +25,7 @@ func add_upgrade(chain: UpgradeChain, upgrade: UpgradeResource) -> void:
 	chain.owned_upgrades.append(upgrade)
 	if upgrade.id == "sharper_arrows":
 		damage += 1
-		blood_mask.add_new_scale(0.2)
+		blood_mask.add_new_scale(0.15)
 
 
 func _ready() -> void:
@@ -34,7 +34,7 @@ func _ready() -> void:
 
 func enable() -> void:
 	$EnemyDetector.monitoring = true
-	blood_mask.reposition()
+	blood_mask.set_new_scale(0.5)
 	blood_mask.show()
 
 

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://y3nllloc1fa1" path="res://assets/basic_tower.png" id="1_ls63v"]
 
 [node name="TowerPanel" type="PanelContainer" unique_id=790190272]
-custom_minimum_size = Vector2(48, 68)
+custom_minimum_size = Vector2(96, 128)
 theme = ExtResource("1_2jmr6")
 script = ExtResource("1_f8845")
 
@@ -19,17 +19,18 @@ offset_bottom = 68.0
 theme_override_constants/separation = 0
 
 [node name="TextureRect" type="TextureRect" parent="Button/VBoxContainer" unique_id=623181321]
-custom_minimum_size = Vector2(48, 48)
+custom_minimum_size = Vector2(96, 96)
 layout_mode = 2
 texture = ExtResource("1_ls63v")
 expand_mode = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Button/VBoxContainer" unique_id=634340366]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_vertical = 3
 mouse_filter = 1
-theme_override_font_sizes/normal_font_size = 14
+theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
-text = "[img width=20]res://assets/blood.png[/img]100"
+text = "[img width=32]res://assets/blood.png[/img]100"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

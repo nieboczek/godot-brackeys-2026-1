@@ -6,18 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://di6e7xqv8sg7s" path="res://scenes/blood_mask.tscn" id="4_qrbg1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lbhrr"]
-radius = 80.0
+radius = 160.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ktxwe"]
-size = Vector2(29, 23)
+size = Vector2(58, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qrbg1"]
-size = Vector2(43, 53)
+size = Vector2(86, 106)
 
 [node name="Tower" type="Node2D" unique_id=1361143145]
 script = ExtResource("2_ktxwe")
 cooldown = 0.8
-arrow_speed = 130.0
+tower_range = 160.0
+arrow_speed = 240.0
 detector_offset = Vector2(0, -17)
 shoot_start = Vector2(-4, -39)
 arrow_texture = ExtResource("3_ktxwe")
@@ -25,7 +26,6 @@ arrow_max_height = 40.0
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=701720898]
 position = Vector2(0, -15)
-scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_ay4al")
 
 [node name="EnemyDetector" type="Area2D" parent="." unique_id=1399561136]
@@ -43,7 +43,7 @@ collision_mask = 2
 input_pickable = false
 
 [node name="CollisionShape" type="CollisionShape2D" parent="OccupiedSpace" unique_id=1805450849]
-position = Vector2(0.5, 4.5)
+position = Vector2(1, 25)
 shape = SubResource("RectangleShape2D_ktxwe")
 
 [node name="SelectableArea" type="Area2D" parent="." unique_id=1563066156]
@@ -52,7 +52,7 @@ collision_mask = 0
 monitoring = false
 
 [node name="CollisionShape" type="CollisionShape2D" parent="SelectableArea" unique_id=526351635]
-position = Vector2(1.5, -10.5)
+position = Vector2(2, -6)
 shape = SubResource("RectangleShape2D_qrbg1")
 
 [node name="BloodMask" parent="." unique_id=1543043193 instance=ExtResource("4_qrbg1")]

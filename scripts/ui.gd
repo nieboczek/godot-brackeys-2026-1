@@ -118,7 +118,7 @@ func _health_changed(new_health: int) -> void:
 	_set_label(new_health, Manager.blood)
 
 func _set_label(health: int, blood: int) -> void:
-	hp_label.text = "[img height=22]res://assets/heart.png[/img] %s   [img height=22]res://assets/blood.png[/img]%s" % [health, blood]
+	hp_label.text = "[img height=32]res://assets/heart.png[/img] %s   [img height=32]res://assets/blood.png[/img]%s" % [health, blood]
 
 func _new_round(n: int) -> void:
 	round_label.text = str(n)

@@ -2,9 +2,9 @@ class_name TowerUpgrade
 extends MarginContainer
 
 @onready var next_panel: PanelContainer = $Container/PanelContainer
-@onready var next_label: Label = $Container/PanelContainer/Next/Label
-@onready var next_img: TextureRect = $Container/PanelContainer/Next/TextureRect
-@onready var next_cost: RichTextLabel = $Container/PanelContainer/Next/RichTextLabel
+@onready var next_label: Label = $Container/PanelContainer/MarginContainer/Next/Label
+@onready var next_img: TextureRect = $Container/PanelContainer/MarginContainer/Next/TextureRect
+@onready var next_cost: RichTextLabel = $Container/PanelContainer/MarginContainer/Next/RichTextLabel
 
 @onready var current_label: Label = $Container/Current/Label
 @onready var current_img: TextureRect = $Container/Current/TextureRect
@@ -54,7 +54,7 @@ func set_next_upgrade(upgrade: UpgradeResource) -> void:
 	
 	next_label.text = upgrade.name
 	next_img.texture = upgrade.texture
-	next_cost.text = "[img height=14]res://assets/blood.png[/img]%s" % upgrade.cost
+	next_cost.text = "[img height=24]res://assets/blood.png[/img]%s" % upgrade.cost
 
 func set_current_upgrade(upgrade: UpgradeResource) -> void:
 	current_upgrade = upgrade

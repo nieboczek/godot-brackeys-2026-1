@@ -10,7 +10,7 @@ signal bought(scene: PackedScene)
 @onready var button: Button = $Button
 
 func _ready() -> void:
-	$Button/VBoxContainer/RichTextLabel.text = "[img width=20]res://assets/blood.png[/img]%s" % cost
+	$Button/VBoxContainer/RichTextLabel.text = "[img width=32]res://assets/blood.png[/img]%s" % cost
 	$Button/VBoxContainer/TextureRect.texture = tower_texture
 	button.disabled = cost > Manager.blood
 	Manager.blood_changed.connect(_blood_changed)

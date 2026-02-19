@@ -60,8 +60,8 @@ func _ready() -> void:
 	console.yo_mama_so_fat = 69
 	console.reparent($Camera)
 	console.yo_mama_so_fat = 2137
-	console.size = Vector2(640, 180)
-	console.position = Vector2(-320, -360)
+	console.size = Vector2(1280, 360)
+	console.position = Vector2(-640, -720)
 	if not console._closed:
 		console._closed = true
 		console._play_close_animation()
