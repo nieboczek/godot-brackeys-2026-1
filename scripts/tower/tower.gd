@@ -73,6 +73,7 @@ func spawn_arrow() -> void:
 	
 	var arrow := Arrow.new()
 	arrow.texture = arrow_texture
+	arrow.scale = Vector2(2, 2)
 	arrow.start = global_position + shoot_start
 	arrow.position = arrow.start
 	arrow.end = target.global_position + target.res.center_offset

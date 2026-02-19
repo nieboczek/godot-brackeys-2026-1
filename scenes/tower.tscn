@@ -22,7 +22,7 @@ arrow_speed = 240.0
 detector_offset = Vector2(0, -17)
 shoot_start = Vector2(-4, -39)
 arrow_texture = ExtResource("3_ktxwe")
-arrow_max_height = 40.0
+arrow_max_height = 100.0
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=701720898]
 position = Vector2(0, -15)
