@@ -4,6 +4,19 @@ extends PathFollow2D
 var res: EnemyResource
 var health: int
 var time_left_red: float = INF
+var blood_effect_count: int = 0
+
+
+func add_blood_effects() -> void:
+	blood_effect_count += 1
+	if blood_effect_count == 1:
+		Log.debug("Activate blood effects")
+
+
+func remove_blood_effects() -> void:
+	blood_effect_count -= 1
+	if blood_effect_count == 0:
+		Log.debug("Deactivate blood effects")
 
 
 func _ready() -> void:

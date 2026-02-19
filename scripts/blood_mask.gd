@@ -3,6 +3,7 @@ extends Sprite2D
 
 @onready var map: Sprite2D = $Map
 @onready var shape_cast: ShapeCast2D = $ShapeCast
+@onready var detector_shape: CollisionShape2D = $EnemyDetector/CollisionShape
 
 func add_new_scale(added_scale: float) -> void:
 	set_new_scale(scale.x + added_scale)
@@ -16,10 +17,13 @@ func set_new_scale(new_scale: float) -> void:
 	scale = Vector2(new_scale, new_scale)
 	map.global_scale = Vector2.ONE
 	map.global_position = Vector2(320, 180)
+	detector_shape.global_scale = Vector2.ONE
+	detector_shape.shape.radius = 64.0 * new_scale
 	infect_foliage()
 
 func infect_foliage() -> void:
-	shape_cast.margin = scale.x * 2
+	shape_cast.global_scale = Vector2.ONE
+	shape_cast.shape.radius = 64.0 * scale.x
 	shape_cast.force_shapecast_update()
 	for i in range(shape_cast.get_collision_count()):
 		var collider := shape_cast.get_collider(i)
@@ -32,13 +36,21 @@ func infect_foliage() -> void:
 			"grass_3.png": s = preload("res://assets/deco/evil_grass_3.png")
 			"rock_1.png": s = preload("res://assets/deco/evil_rock_1.png")
 			"rock_2.png": s = preload("res://assets/deco/evil_rock_2.png")
-			"evil_grass_1.png": return
-			"evil_grass_2.png": return
-			"evil_grass_3.png": return
-			"evil_rock_1.png": return
-			"evil_rock_2.png": return
+			"evil_grass_1.png": continue
+			"evil_grass_2.png": continue
+			"evil_grass_3.png": continue
+			"evil_rock_1.png": continue
+			"evil_rock_2.png": continue
 			_:
 				Log.err("Deco ", sprite.texture.resource_path, " has no mapping [BloodMask::infect_foliage]")
-				return
+				continue
 		
 		sprite.texture = s
+
+
+func _on_enemy_detector_body_entered(body: Node2D) -> void:
+	body.get_parent().add_blood_effects()
+
+
+func _on_enemy_detector_body_exited(body: Node2D) -> void:
+	body.get_parent().remove_blood_effects()

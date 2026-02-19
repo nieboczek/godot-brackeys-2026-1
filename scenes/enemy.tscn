@@ -50,6 +50,7 @@ script = ExtResource("1_7p1mj")
 
 [node name="CharacterBody" type="CharacterBody2D" parent="." unique_id=1017641450]
 scale = Vector2(0.65, 0.65)
+collision_mask = 0
 
 [node name="Anchor" type="Node2D" parent="CharacterBody" unique_id=1320892642]
 
