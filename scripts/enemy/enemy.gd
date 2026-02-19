@@ -3,20 +3,25 @@ extends PathFollow2D
 
 var res: EnemyResource
 var health: int
+var speed: float
 var time_left_red: float = INF
 var blood_effect_count: int = 0
+
+@onready var sprite: Sprite2D = $CharacterBody/Anchor/Sprite
 
 
 func add_blood_effects() -> void:
 	blood_effect_count += 1
 	if blood_effect_count == 1:
-		Log.debug("Activate blood effects")
+		sprite.texture = res.evil_texture
+		speed += 10.0
 
 
 func remove_blood_effects() -> void:
 	blood_effect_count -= 1
 	if blood_effect_count == 0:
-		Log.debug("Deactivate blood effects")
+		sprite.texture = res.texture
+		speed -= 10.0
 
 
 func _ready() -> void:
@@ -24,12 +29,12 @@ func _ready() -> void:
 	shape.position = res.hitbox_pos
 	shape.shape = res.hitbox
 	
-	var sprite: Sprite2D = $CharacterBody/Anchor/Sprite
 	sprite.position = res.pos
 	sprite.texture = res.texture
 	sprite.flip_h = res.mirror_horizontal
 	
 	health = res.health
+	speed = res.speed
 	
 	var anchor := $CharacterBody/Anchor
 	var tween := anchor.create_tween()
@@ -45,7 +50,7 @@ func _process(delta: float) -> void:
 	if time_left_red <= 0.0:
 		modulate = Color.WHITE
 	
-	progress += res.speed * delta
+	progress += speed * delta
 	if progress_ratio > 0.99:
 		Manager.damage(res.damage)
 		queue_free()
@@ -61,7 +66,7 @@ func add_damage(dmg: int) -> void:
 		set_process(false)
 		Manager.blood += res.blood_value
 		modulate = Color.WHITE
-		$CharacterBody/Anchor/Sprite.hide()
+		sprite.hide()
 		$GPUParticles.restart()
 		await get_tree().create_timer(3.0).timeout
 		queue_free()

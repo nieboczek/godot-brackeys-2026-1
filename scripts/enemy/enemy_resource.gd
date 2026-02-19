@@ -4,6 +4,7 @@ extends Resource
 @export var hitbox: Shape2D
 @export var hitbox_pos: Vector2
 @export var texture: Texture2D
+@export var evil_texture: Texture2D
 @export var center_offset: Vector2
 @export var pos: Vector2
 @export var mirror_horizontal: bool

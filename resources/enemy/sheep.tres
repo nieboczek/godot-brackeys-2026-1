@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyResource" format=3 uid="uid://lxtvpr52vb3m"]
 
+[ext_resource type="Texture2D" uid="uid://b6hpmp1ds4fti" path="res://assets/enemy/sheep.png" id="1_0mc3d"]
 [ext_resource type="Script" uid="uid://b668sg8qgtwit" path="res://scripts/enemy/enemy_resource.gd" id="1_ltjw5"]
-[ext_resource type="Texture2D" uid="uid://b6hpmp1ds4fti" path="res://assets/sheep.png" id="2_0mc3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0mc3d"]
 size = Vector2(42, 34)
@@ -10,11 +10,12 @@ size = Vector2(42, 34)
 script = ExtResource("1_ltjw5")
 hitbox = SubResource("RectangleShape2D_0mc3d")
 hitbox_pos = Vector2(-4, -21)
-texture = ExtResource("2_0mc3d")
+texture = ExtResource("1_0mc3d")
+evil_texture = ExtResource("1_0mc3d")
 center_offset = Vector2(-4, -28)
 pos = Vector2(0, -26)
-speed = 20.0
+speed = 16.0
 health = 8
 damage = 2
-blood_value = 3
+blood_value = 6
 metadata/_custom_type_script = "uid://b668sg8qgtwit"

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6hpmp1ds4fti"
-path="res://.godot/imported/sheep.png-8b8cd86b8428760487cf69c7697ecb0e.ctex"
+uid="uid://bi85m0xm8hbwm"
+path="res://.godot/imported/cow.png-0ec30495ad75348470f5634fb951b5b9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sheep.png"
-dest_files=["res://.godot/imported/sheep.png-8b8cd86b8428760487cf69c7697ecb0e.ctex"]
+source_file="res://assets/enemy/cow.png"
+dest_files=["res://.godot/imported/cow.png-0ec30495ad75348470f5634fb951b5b9.ctex"]
 
 [params]
 
