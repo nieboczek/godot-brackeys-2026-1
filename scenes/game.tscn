@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://csqfmkk53awew" path="res://assets/deco/grass_2.png" id="10_vtaks"]
 [ext_resource type="Texture2D" uid="uid://cnr6jrehm4nol" path="res://assets/deco/rock_1.png" id="11_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://lmhlwhdf5mt5" path="res://assets/deco/grass_3.png" id="12_dinhu"]
+[ext_resource type="Texture2D" uid="uid://blujbxsa4t41m" path="res://assets/bomb_tower.png" id="13_ir15t"]
 [ext_resource type="Texture2D" uid="uid://b5xlh6yj1l71l" path="res://assets/deco/rock_2.png" id="13_kvuet"]
+[ext_resource type="PackedScene" uid="uid://cf0hxxu144g6b" path="res://scenes/bomb_tower.tscn" id="14_ca42v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kvuet"]
 size = Vector2(14, 17)
@@ -270,6 +272,12 @@ layout_mode = 2
 tower_texture = ExtResource("5_p57ef")
 tower_scene = ExtResource("4_lbhrr")
 cost = 50
+
+[node name="TowerPanel2" parent="Camera/UI/Towers" unique_id=2046719851 instance=ExtResource("4_iywne")]
+layout_mode = 2
+tower_texture = ExtResource("13_ir15t")
+tower_scene = ExtResource("14_ca42v")
+cost = 100
 
 [node name="RoundButton" type="TextureButton" parent="Camera/UI" unique_id=1549761248]
 layout_mode = 1

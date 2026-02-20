@@ -15,17 +15,26 @@ extends Node2D
 
 var enemies_to_shoot: Array[Enemy] = []
 var current_cooldown := 0.0
-var chains: Array[UpgradeChain] = [
-	UpgradeChain.create("sharper", [
-		preload("res://resources/upgrade/sharper_arrows.tres")
-	])
-]
+var chains: Array[UpgradeChain] = _init_chains()
 
-func add_upgrade(chain: UpgradeChain, upgrade: UpgradeResource) -> void:
-	chain.owned_upgrades.append(upgrade)
+func _init_chains() -> Array[UpgradeChain]:
+	return [
+		UpgradeChain.create("sharper", [
+			preload("res://resources/upgrade/sharper_arrows.tres")
+		])
+	]
+
+func _create_arrow() -> Arrow:
+	return Arrow.new()
+
+func _upgrade_added(upgrade: UpgradeResource) -> void:
 	if upgrade.id == "sharper_arrows":
 		damage += 1
 		blood_mask.add_new_scale(0.15)
+
+func add_upgrade(chain: UpgradeChain, upgrade: UpgradeResource) -> void:
+	chain.owned_upgrades.append(upgrade)
+	_upgrade_added(upgrade)
 
 
 func _ready() -> void:
@@ -69,13 +78,13 @@ func spawn_arrow() -> void:
 	if target == null:
 		return
 
-	Manager.predicted_health[target] -= damage
+	_predict_health(target)
 	
-	var arrow := Arrow.new()
+	var arrow := _create_arrow()
+	arrow.start = global_position + shoot_start
+	arrow.global_position = arrow.start
 	arrow.texture = arrow_texture
 	arrow.scale = Vector2(2, 2)
-	arrow.start = global_position + shoot_start
-	arrow.position = arrow.start
 	arrow.end = target.global_position + target.res.center_offset
 	arrow.control = (arrow.start + arrow.end) / 2 - Vector2(0, arrow_max_height)
 	arrow.duration = (arrow.start - arrow.end).length() / arrow_speed
@@ -84,6 +93,9 @@ func spawn_arrow() -> void:
 	
 	add_child(arrow)
 
+func _predict_health(enemy: Enemy) -> void:
+	Manager.predicted_health[enemy] -= damage
 
-func _hit_target(body: Node2D) -> void:
+
+func _hit_target(body: Enemy) -> void:
 	body.add_damage(damage)

@@ -11,6 +11,11 @@ var start: Vector2
 var control: Vector2
 var end: Vector2
 
+func _after_hit() -> void:
+	if target:
+		hit_target.emit(target)
+	queue_free()
+
 func _process(delta: float) -> void:
 	time += delta
 	var t := clampf(time / duration, 0, 1)
@@ -25,6 +30,4 @@ func _process(delta: float) -> void:
 	rotation = (end - global_position).angle()
 
 	if t >= 1:
-		if target:
-			hit_target.emit(target)
-		queue_free()
+		_after_hit()
