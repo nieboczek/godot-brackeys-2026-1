@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bryosm7e11eqc"]
+
+[ext_resource type="Texture2D" uid="uid://23cuwm8l8xr3" path="res://assets/red_pixel.png" id="1_jn38s"]
+
+[sub_resource type="Curve" id="Curve_jn38s"]
+_data = [Vector2(0.50141644, 1), 0.0, 0.0, 0, 0, Vector2(0.74787533, 0), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_1fltu"]
+curve = SubResource("Curve_jn38s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_jn38s"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 180.0
+initial_velocity_min = 80.0
+initial_velocity_max = 120.0
+gravity = Vector3(0, 90, 0)
+scale_min = 5.0
+scale_max = 5.0
+alpha_curve = SubResource("CurveTexture_1fltu")
+
+[node name="ExplosionParticles" type="GPUParticles2D" unique_id=1395330203]
+emitting = false
+amount = 64
+texture = ExtResource("1_jn38s")
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_jn38s")

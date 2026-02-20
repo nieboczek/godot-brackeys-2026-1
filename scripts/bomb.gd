@@ -30,12 +30,19 @@ func _after_hit() -> void:
 	
 	a.add_child(shape)
 	add_child(a)
+	
+	var particles := preload("res://scenes/explosion_particles.tscn").instantiate()
+	add_child(particles)
 	queue_redraw()
 	
 	await get_tree().create_timer(2.0).timeout
 	
 	for body in bodies:
 		hit_target.emit(body)
+
+	texture = null
+	particles.restart()
+	await get_tree().create_timer(2.0).timeout
 	queue_free()
 
 
